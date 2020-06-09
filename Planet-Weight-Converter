@@ -1,0 +1,23 @@
+print("Welcome to 'Am I Overweight on Another Planet?!'")
+weight = float(input("Enter your weight on Earth (any unit) don't worry I wont tell Earth: "))
+planet = input("Enter the planet's name: ")
+
+print("\nEnter the radius of", str(planet), "(in meters) using scientific notation: A x 10^B")
+planet_A_Rad = float(input("Enter the value of A for " + str(planet) + "\'s " + "radius: "))
+planet_B_Rad = float(input("Enter the value of B for " + str(planet) + "\'s " + "radius: "))
+
+print("You entered a radius of", round(planet_A_Rad, 2), "x", "10^" + str(int(planet_B_Rad)), "meters for", str(planet) + ".\n")
+planet_Rad = planet_A_Rad * 10 ** planet_B_Rad
+
+print("Enter the mass of", str(planet), "(in kilograms) using scientific notation: A x 10^B")
+planet_A_Mass = float(input("Enter the value of A for " + str(planet) + "\'s " + "mass: "))
+planet_B_Mass = float(input("Enter the value of B for " + str(planet) + "\'s " + "mass: "))
+print("You entered a mass of", round(planet_A_Mass, 2), "x", "10^" + str(int(planet_B_Mass)), "kilograms for", str(planet) + ".\n")
+planet_Mass = planet_A_Mass * 10 ** planet_B_Mass
+
+planet_grav = (6.673 * 10 ** -11) * planet_Mass/(planet_Rad ** 2)
+
+percent2Earth = planet_grav/9.81 *100
+yourWeight = weight * (percent2Earth)/ 100
+
+print("The surface gravity on", str(planet), "is", round(planet_grav, 2), "m/s^2,", "which is", str(round(percent2Earth, 2)) + "%", "of Earth's.\nIf you weigh", round(weight, 2), "on Earth, then you would weigh", round(yourWeight, 2), "on", str(planet) + "!", "Want to move to", str(planet), "?")
